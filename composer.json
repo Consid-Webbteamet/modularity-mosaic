@@ -1,0 +1,27 @@
+{
+  "name": "consid-webbteamet/modularity-mosaic",
+  "description": "Modularity Mosaic module",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Consid Webbteamet"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "ModularityMosaic\\": "source/php/"
+    }
+  },
+  "require": {
+    "php": "^8.0"
+  },
+  "suggest": {
+    "helsingborg-stad/municipio": "^6.0.0"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
