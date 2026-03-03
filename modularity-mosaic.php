@@ -22,7 +22,6 @@ define('MODULARITYMOSAIC_URL', plugins_url('', __FILE__));
 define('MODULARITYMOSAIC_MODULE_PATH', MODULARITYMOSAIC_PATH . 'source/php/Module/');
 define('MODULARITYMOSAIC_MODULE_VIEW_PATH', MODULARITYMOSAIC_PATH . 'source/php/Module/views');
 
-
 add_action('init', static function (): void {
     load_plugin_textdomain('modularity-mosaic', false, plugin_basename(dirname(__FILE__)) . '/languages');
 });
@@ -50,8 +49,20 @@ if (file_exists($autoload)) {
 }
 
 add_action('acf/init', static function (): void {
-    $acfFields = MODULARITYMOSAIC_PATH . 'source/php/AcfFields/php/modularity-mosaic-settings.php';
+    if (class_exists('\\AcfExportManager\\AcfExportManager')) {
+        $acfExportManager = new \AcfExportManager\AcfExportManager();
+        $acfExportManager->setTextdomain('modularity-mosaic');
+        $acfExportManager->setExportFolder(MODULARITYMOSAIC_PATH . 'source/php/AcfFields/');
+        $acfExportManager->autoExport([
+            'modularity-mosaic-settings' => 'group_modularity_mosaic_settings',
+        ]);
+        $acfExportManager->import();
 
+        return;
+    }
+
+    // Fallback if AcfExportManager is unavailable.
+    $acfFields = MODULARITYMOSAIC_PATH . 'source/php/AcfFields/php/modularity-mosaic-settings.php';
     if (file_exists($acfFields)) {
         require_once $acfFields;
     }
