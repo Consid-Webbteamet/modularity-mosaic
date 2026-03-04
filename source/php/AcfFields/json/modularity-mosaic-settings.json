@@ -1,0 +1,840 @@
+[
+  {
+    "key": "group_modularity_mosaic_settings",
+    "title": "Modularity Mosaic",
+    "fields": [
+      {
+        "key": "field_mod_mosaic_sections",
+        "label": "Mosaiker",
+        "name": "mod_mosaic_sections",
+        "type": "flexible_content",
+        "required": 1,
+        "instructions": "Välj en mosaiktyp för varje rad. Du kan kombinera flera mosaiker i valfri ordning.",
+        "button_label": "Lägg till mosaik",
+        "layouts": [
+          {
+            "key": "layout_mod_mosaic_full",
+            "name": "full",
+            "label": "Helbredd (split)",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mod_mosaic_layout_info_full",
+                "label": "Instruktion",
+                "name": "",
+                "type": "message",
+                "message": "Visning: en stor mosaik i helbredd med textdel och bilddel. Välj bildplacering till vänster eller höger.",
+                "new_lines": "wpautop",
+                "esc_html": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_full_main_group",
+                "label": "Huvudkort",
+                "name": "main_card",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_full_main_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_full_main_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_full_main_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_full_main_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_full_main_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_full_main_image_position",
+                    "label": "Bildplacering",
+                    "name": "image_position",
+                    "type": "radio",
+                    "required": 1,
+                    "choices": {
+                      "left": "Vänster",
+                      "right": "Höger"
+                    },
+                    "default_value": "right",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "horizontal",
+                    "save_other_choice": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          {
+            "key": "layout_mod_mosaic_two_col_stacked",
+            "name": "two_col_stacked",
+            "label": "Två kolumner (huvud + två)",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mod_mosaic_layout_info_two_col_stacked",
+                "label": "Instruktion",
+                "name": "",
+                "type": "message",
+                "message": "Visning: vänster kolumn med ett huvudkort. Höger kolumn med två mindre kort, ett överst och ett nederst.",
+                "new_lines": "wpautop",
+                "esc_html": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_two_col_stacked_left_main_group",
+                "label": "Huvudkort (vänster)",
+                "name": "left_main",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_left_main_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_left_main_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_left_main_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_left_main_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_left_main_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_two_col_stacked_right_top_group",
+                "label": "Sidokort (höger, överst)",
+                "name": "right_top",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_top_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_top_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_top_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_top_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_top_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_two_col_stacked_right_bottom_group",
+                "label": "Sidokort (höger, nederst)",
+                "name": "right_bottom",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_bottom_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_bottom_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_bottom_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_bottom_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_stacked_right_bottom_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          {
+            "key": "layout_mod_mosaic_two_col_image_top",
+            "name": "two_col_image_top",
+            "label": "Två kolumner (huvud + bildkort)",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mod_mosaic_layout_info_two_col_image_top",
+                "label": "Instruktion",
+                "name": "",
+                "type": "message",
+                "message": "Visning: vänster kolumn med huvudkort. Höger kolumn med ett kort där bilden ligger ovanför textinnehållet.",
+                "new_lines": "wpautop",
+                "esc_html": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_two_col_image_top_left_main_group",
+                "label": "Huvudkort (vänster)",
+                "name": "left_main",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_left_main_image_position",
+                    "label": "Bildplacering",
+                    "name": "image_position",
+                    "type": "radio",
+                    "required": 1,
+                    "choices": {
+                      "left": "Vänster",
+                      "right": "Höger"
+                    },
+                    "default_value": "right",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "horizontal",
+                    "save_other_choice": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              },
+              {
+                "key": "field_mod_mosaic_two_col_image_top_right_card_group",
+                "label": "Sidokort (höger, bild över text)",
+                "name": "right_card",
+                "type": "group",
+                "required": 1,
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_right_card_title",
+                    "label": "Rubrik",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_right_card_body",
+                    "label": "Text",
+                    "name": "body",
+                    "type": "textarea",
+                    "required": 1,
+                    "default_value": "",
+                    "new_lines": "wpautop",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": 4,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_right_card_link",
+                    "label": "Knapplänk",
+                    "name": "link",
+                    "type": "link",
+                    "required": 0,
+                    "return_format": "array",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_right_card_color",
+                    "label": "Färg",
+                    "name": "color",
+                    "type": "select",
+                    "required": 1,
+                    "choices": {
+                      "red": "Röd",
+                      "green": "Grön",
+                      "brown": "Brun"
+                    },
+                    "default_value": "brown",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "wrapper": {
+                      "width": "50",
+                      "class": "",
+                      "id": ""
+                    }
+                  },
+                  {
+                    "key": "field_mod_mosaic_two_col_image_top_right_card_image",
+                    "label": "Bild",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    }
+                  }
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                }
+              }
+            ],
+            "min": "",
+            "max": ""
+          }
+        ],
+        "min": 1,
+        "max": 0,
+        "layout": "block",
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        }
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "mod-mosaic"
+        }
+      ],
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/mosaic"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

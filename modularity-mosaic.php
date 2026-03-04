@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Plugin Name:       Modularity Mosaic
- * Description:       A Modularity module with a simple heading field.
+ * Description:       A Modularity module with configurable mosaic layouts.
  * Version:           0.1.0
  * Author:            Consid Webbteamet
  * Text Domain:       modularity-mosaic
