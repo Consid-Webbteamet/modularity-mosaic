@@ -19,8 +19,10 @@ class Mosaic extends \Modularity\Module
 
     public function data(): array
     {
+        $fields = $this->getFields();
+
         return [
-            'rubrik' => (string) get_field('mod_mosaic_rubrik', $this->ID),
+            'rubrik' => (string) ($fields['mod_mosaic_rubrik'] ?? ''),
         ];
     }
 
