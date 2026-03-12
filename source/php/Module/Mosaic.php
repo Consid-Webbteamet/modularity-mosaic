@@ -116,7 +116,7 @@ class Mosaic extends \Modularity\Module
             'imagePosition' => $imagePosition,
             'backgroundVar' => $colorParts['backgroundVar'],
             'backgroundHex' => $colorParts['backgroundHex'],
-            'textColor' => $this->getTextColor($colorParts['backgroundHex']),
+            'textColor' => $colorParts['textColor'],
         ];
     }
 
@@ -142,24 +142,11 @@ class Mosaic extends \Modularity\Module
     }
 
     /**
-     * @return array{backgroundVar:string,backgroundHex:string}
+     * @return array{backgroundVar:string,backgroundHex:string,textColor:string}
      */
     private function splitColor(string $color): array
     {
-        $namedColors = [
-            'red' => [
-                'backgroundVar' => '',
-                'backgroundHex' => '#5B1E1E',
-            ],
-            'green' => [
-                'backgroundVar' => '',
-                'backgroundHex' => '#0E3E38',
-            ],
-            'brown' => [
-                'backgroundVar' => '',
-                'backgroundHex' => '#3A2A17',
-            ],
-        ];
+        $namedColors = $this->getNamedColors();
 
         if (isset($namedColors[$color])) {
             return $namedColors[$color];
@@ -169,6 +156,7 @@ class Mosaic extends \Modularity\Module
             return [
                 'backgroundVar' => '',
                 'backgroundHex' => '',
+                'textColor' => '',
             ];
         }
 
@@ -177,6 +165,42 @@ class Mosaic extends \Modularity\Module
         return [
             'backgroundVar' => (string) $backgroundVar,
             'backgroundHex' => (string) $backgroundHex,
+            'textColor' => $this->getTextColor((string) $backgroundHex),
+        ];
+    }
+
+    /**
+     * @return array<string, array{backgroundVar:string,backgroundHex:string,textColor:string}>
+     */
+    private function getNamedColors(): array
+    {
+        $primaryFallback = '#123F7C';
+        $secondaryFallback = '#5B1E1E';
+        $tertiaryFallback = '#3A2A17';
+        $quaternaryFallback = '#0E3E38';
+
+        return [
+            'primary' => $this->buildNamedColor('--color-primary-500', '--color-primary-contrasting', $primaryFallback),
+            'secondary' => $this->buildNamedColor('--color-secondary-500', '--color-secondary-contrasting', $secondaryFallback, 'var(--color-white, #ffffff)'),
+            'tertiary' => $this->buildNamedColor('--color-tertiary-500', '--color-tertiary-contrasting', $tertiaryFallback),
+            'quaternary' => $this->buildNamedColor('--color-quaternary-500', '--color-quaternary-contrasting', $quaternaryFallback),
+            // Backward compatibility for previously saved editorial values.
+            'blue' => $this->buildNamedColor('--color-primary-500', '--color-primary-contrasting', $primaryFallback),
+            'red' => $this->buildNamedColor('--color-secondary-500', '--color-secondary-contrasting', $secondaryFallback, 'var(--color-white, #ffffff)'),
+            'brown' => $this->buildNamedColor('--color-tertiary-500', '--color-tertiary-contrasting', $tertiaryFallback),
+            'green' => $this->buildNamedColor('--color-quaternary-500', '--color-quaternary-contrasting', $quaternaryFallback),
+        ];
+    }
+
+    /**
+     * @return array{backgroundVar:string,backgroundHex:string,textColor:string}
+     */
+    private function buildNamedColor(string $backgroundVar, string $textVar, string $fallbackHex, ?string $forcedTextColor = null): array
+    {
+        return [
+            'backgroundVar' => $backgroundVar,
+            'backgroundHex' => $fallbackHex,
+            'textColor' => $forcedTextColor ?? 'var(' . $textVar . ', ' . $this->getTextColor($fallbackHex) . ')',
         ];
     }
 

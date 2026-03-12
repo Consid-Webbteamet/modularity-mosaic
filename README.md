@@ -11,10 +11,11 @@ A Modularity module plugin for Municipio that provides configurable mosaic layou
   - `Helbredd (split)`
   - `Två kolumner (huvud + två)`
   - `Två kolumner (huvud + bildkort)`
-- Includes fixed color choices per card:
-  - `Röd`
-  - `Grön`
-  - `Brun`
+- Includes semantic color roles per card:
+  - `Primär`
+  - `Sekundär`
+  - `Tertiär`
+  - `Kvartär`
 - Exports ACF definitions to both PHP and JSON using `AcfExportManager`
 
 ## Requirements
