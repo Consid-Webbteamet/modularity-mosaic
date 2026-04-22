@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace ModularityMosaic\Module;
 
+use ComponentLibrary\Integrations\Image\Image as ImageComponentContract;
+use Modularity\Integrations\Component\ImageFocusResolver;
+use Modularity\Integrations\Component\ImageResolver;
+
 class Mosaic extends \Modularity\Module
 {
     public $slug = 'mosaic';
@@ -113,11 +117,42 @@ class Mosaic extends \Modularity\Module
             'body' => (string) ($card['body'] ?? ''),
             'link' => $this->normalizeLink($card['link'] ?? []),
             'imageId' => $imageId > 0 ? $imageId : null,
+            'image' => $imageId > 0 ? $this->getImageContract($imageId) : null,
             'imagePosition' => $imagePosition,
             'backgroundVar' => $colorParts['backgroundVar'],
             'backgroundHex' => $colorParts['backgroundHex'],
             'textColor' => $colorParts['textColor'],
         ];
+    }
+
+    /**
+     * Match Municipio's Hero image handling so the component can render
+     * container-query based image variants.
+     *
+     * @return mixed
+     */
+    private function getImageContract(int $imageId)
+    {
+        if (
+            !function_exists('wp_attachment_is_image') ||
+            !wp_attachment_is_image($imageId) ||
+            !class_exists(ImageComponentContract::class) ||
+            !class_exists(ImageResolver::class) ||
+            !class_exists(ImageFocusResolver::class)
+        ) {
+            return null;
+        }
+
+        try {
+            return ImageComponentContract::factory(
+                $imageId,
+                [1920, false],
+                new ImageResolver(),
+                new ImageFocusResolver(['id' => $imageId]),
+            );
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 
     /**

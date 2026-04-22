@@ -16,7 +16,8 @@
     }
 
     $style = implode('; ', $styleParts);
-    $hasImage = !empty($card['imageId']);
+    $hasImage = !empty($card['image']);
+    $hasFallbackImage = !$hasImage && !empty($card['imageId']);
     $hasLink = !empty($card['link']['url']);
     $linkTarget = (string) ($card['link']['target'] ?? '');
     $linkRel = $linkTarget === '_blank' ? 'noopener noreferrer' : '';
@@ -24,6 +25,16 @@
 
 <article class="ls-mosiac__card ls-mosiac__card--side-image ls-mosiac__card--image-{{ esc_attr($imagePosition) }}" @if (!empty($style)) style="{{ esc_attr($style) }}" @endif>
     @if ($hasImage && $imagePosition === 'left')
+        <div class="ls-mosiac__image-wrapper">
+            @image([
+                'src' => $card['image'],
+                'cover' => true,
+                'classList' => ['ls-mosiac__image'],
+                'placeholderEnabled' => false,
+            ])
+            @endimage
+        </div>
+    @elseif ($hasFallbackImage && $imagePosition === 'left')
         <div class="ls-mosiac__image-wrapper">
             {!! wp_get_attachment_image((int) $card['imageId'], 'large', false, ['class' => 'ls-mosiac__image']) !!}
         </div>
@@ -46,6 +57,16 @@
     </div>
 
     @if ($hasImage && $imagePosition !== 'left')
+        <div class="ls-mosiac__image-wrapper">
+            @image([
+                'src' => $card['image'],
+                'cover' => true,
+                'classList' => ['ls-mosiac__image'],
+                'placeholderEnabled' => false,
+            ])
+            @endimage
+        </div>
+    @elseif ($hasFallbackImage && $imagePosition !== 'left')
         <div class="ls-mosiac__image-wrapper">
             {!! wp_get_attachment_image((int) $card['imageId'], 'large', false, ['class' => 'ls-mosiac__image']) !!}
         </div>

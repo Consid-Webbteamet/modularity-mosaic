@@ -15,13 +15,25 @@
     }
 
     $style = implode('; ', $styleParts);
+    $hasImage = !empty($card['image']);
+    $hasFallbackImage = !$hasImage && !empty($card['imageId']);
     $hasLink = !empty($card['link']['url']);
     $linkTarget = (string) ($card['link']['target'] ?? '');
     $linkRel = $linkTarget === '_blank' ? 'noopener noreferrer' : '';
 @endphp
 
 <article class="ls-mosiac__card ls-mosiac__card--image-top" @if (!empty($style)) style="{{ esc_attr($style) }}" @endif>
-    @if (!empty($card['imageId']))
+    @if ($hasImage)
+        <div class="ls-mosiac__image-wrapper">
+            @image([
+                'src' => $card['image'],
+                'cover' => true,
+                'classList' => ['ls-mosiac__image'],
+                'placeholderEnabled' => false,
+            ])
+            @endimage
+        </div>
+    @elseif ($hasFallbackImage)
         <div class="ls-mosiac__image-wrapper">
             {!! wp_get_attachment_image((int) $card['imageId'], 'large', false, ['class' => 'ls-mosiac__image']) !!}
         </div>
